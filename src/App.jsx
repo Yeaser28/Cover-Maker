@@ -590,6 +590,18 @@ function App(){
   const saveTimer=useRef(null);
   const ZOOMS=[0.4,0.5,0.65,0.75,0.9,1,1.15,1.3,1.5];
 
+  useEffect(()=>{
+    const fitZoom=()=>{
+      const avail=window.innerWidth-32;
+      if(avail<CW){
+        setZoom(Math.max(ZOOMS[0],Math.min(1,Math.round((avail/CW)*100)/100)));
+      }
+    };
+    fitZoom();
+    window.addEventListener('resize',fitZoom);
+    return()=>window.removeEventListener('resize',fitZoom);
+  },[]);
+
   const showToast=useCallback(msg=>{
     setToast(msg);
     clearTimeout(toastTimer.current);
