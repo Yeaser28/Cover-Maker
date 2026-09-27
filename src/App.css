@@ -64,5 +64,5 @@ input,textarea,select.prop{width:100%;border:1px solid var(--border);border-radi
   .icn{width:30px;padding:7px 0;}
 }
 @media (max-width:420px){
-  .brand{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:90px;}
+  .brand{font-size:14px;}
 }
